@@ -1,0 +1,14 @@
+AUTHORIZATION_TOKEN: sk_7971fe9cf8a4418b83a0a31e4f50fdaf
+
+UPLOAD_STOCK_DATA: 5
+UPLOAD_COMPANY: 360000
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:2022/postgres
+    username: postgres
+    password: superuser
+  jpa:
+    hibernate:
+      ddl-auto: update
