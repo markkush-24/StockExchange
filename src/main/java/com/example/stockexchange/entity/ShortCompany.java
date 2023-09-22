@@ -1,17 +1,17 @@
 package com.example.stockexchange.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
 
 @Data
-@Entity
+@Table
+@NoArgsConstructor
+@AllArgsConstructor
 public class ShortCompany {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String symbol;

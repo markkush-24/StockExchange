@@ -9,11 +9,11 @@ import org.springframework.data.relational.core.mapping.Table;
 
 import java.io.Serializable;
 
-@Table
+@Table("prev_version_stock_data")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class StockData implements Persistable<Integer>, Serializable {
+public class PreviousVersionStockData implements Persistable<Integer>, Serializable {
 
     @Id
     private Integer id;

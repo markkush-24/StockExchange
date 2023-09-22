@@ -1,14 +1,14 @@
 package com.example.stockexchange.repository;
 
 import com.example.stockexchange.entity.ShortCompany;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.r2dbc.repository.Query;
+import org.springframework.data.r2dbc.repository.R2dbcRepository;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
+import reactor.core.publisher.Flux;
 
 @Repository
-public interface ShortCompanyRepository extends CrudRepository<ShortCompany, Long> {
-    @Query("SELECT s FROM ShortCompany s")
-    List<ShortCompany>getAll();
+public interface ShortCompanyRepository extends R2dbcRepository<ShortCompany, Long> {
+
+    @Query("SELECT * FROM short_company")
+    Flux<ShortCompany> getAll();
 }

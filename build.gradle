@@ -25,22 +25,19 @@ repositories {
 
 ext {
     set('springCloudVersion', '2021.0.5')
-//    2020.0.4
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+    implementation 'org.springframework.boot:spring-boot-starter-reactor-netty:2.7.15'
     implementation 'io.github.yoshikawaa.modelmapper.spring.boot:modelmapper-spring-boot-starter:0.1.0'
     implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
     implementation 'org.springdoc:springdoc-openapi-ui:1.7.0'
     implementation 'io.github.openfeign:feign-okhttp:11.10'
     implementation 'io.github.openfeign:feign-httpclient:11.10'
     implementation 'log4j:log4j:1.2.16'
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.7.15'
-//    implementation 'org.springframework.boot:spring-boot-starter-data-r2dbc:2.7.15'
-//    implementation 'io.r2dbc:r2dbc-postgresql:0.8.13.RELEASE'
-
-    implementation 'org.postgresql:postgresql:42.6.0'
+    implementation 'org.springframework.boot:spring-boot-starter-data-r2dbc:2.7.15'
+    implementation 'io.r2dbc:r2dbc-postgresql:0.8.13.RELEASE'
 
 
     compileOnly 'org.projectlombok:lombok'
