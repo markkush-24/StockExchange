@@ -7,11 +7,17 @@ import io.r2dbc.spi.ConnectionFactory;
 import io.r2dbc.spi.ConnectionFactoryOptions;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.reactive.function.client.WebClient;
 
 import static io.r2dbc.spi.ConnectionFactoryOptions.*;
 
 @Configuration
 public class ClientConfiguration {
+
+    @Bean
+    public WebClient webClient(){
+        return WebClient.builder().build();
+    }
 
     @Bean
     public OkHttpClient client() {

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Flux;
 
 @Repository
-public interface ShortCompanyRepository extends R2dbcRepository<ShortCompany, Long> {
+public interface ShortCompanyRepository extends R2dbcRepository<ShortCompany, Integer> {
 
     @Query("SELECT * FROM short_company")
     Flux<ShortCompany> getAll();
