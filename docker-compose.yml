@@ -1,0 +1,28 @@
+version: '3'
+services:
+  stockexchange-aws-deploy-service:
+    build: .
+    image: stockexchange-aws-deploy-service
+    container_name: stockexchange-aws-deploy-service
+    ports:
+      - "8080:8080"
+    volumes:
+      - /tmp
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://stockexchange-db:5432/stockexchange-db
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=superuser
+    depends_on:
+      - stockexchange-db
+
+  stockexchange-db:
+    image: postgres:latest
+    container_name: stockexchange-db
+    volumes:
+      - /var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=exchangeDB
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=superuser

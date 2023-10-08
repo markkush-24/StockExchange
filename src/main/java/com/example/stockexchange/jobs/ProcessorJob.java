@@ -33,7 +33,7 @@ public class ProcessorJob {
     @Scheduled(fixedDelayString = "${UPLOAD_STOCK_DATA:5}", timeUnit = TimeUnit.SECONDS)
     public void uploadStockData() {
         Flux<StockData> stockData = stockQuoteProcessor.processStockQuotes();
-        saveCustomRepository.savePreviousVersionStockData(stockData).subscribe();
+//        saveCustomRepository.savePreviousVersionStockData(stockData).subscribe();
         saveCustomRepository.saveStocks(stockData).subscribe();
     }
 }

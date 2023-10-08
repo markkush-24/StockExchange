@@ -29,11 +29,11 @@ public class ClientConfiguration {
         return ConnectionFactories.get(
                 ConnectionFactoryOptions.builder()
                         .option(DRIVER, "postgresql")
-                        .option(HOST, "localhost")
+                        .option(HOST, "stockexchange-db")
                         .option(USER, "postgres")
                         .option(PASSWORD, "superuser")
                         .option(DATABASE, "postgres")
-                        .option(PORT, 2022)
+                        .option(PORT, 5432)
                         .build());
     }
 }
