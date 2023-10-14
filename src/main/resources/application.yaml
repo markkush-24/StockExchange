@@ -4,12 +4,29 @@ UPLOAD_STOCK_DATA: 5
 SHOW_DATA: 5
 UPLOAD_COMPANY: 360000
 
-spring:
-  datasource:
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://stockexchange-db:5432/stockexchange-db
+rds:
+  db:
+    url: exchange-db-1.cbuvtfbiqezh.us-east-1.rds.amazonaws.com/postgres?sslMode=require
     username: postgres
     password: superuser
+
+local:
+  db:
+    url: localhost:2022/postgres
+    username: postgres
+    password: superuser
+
+spring:
+  codec:
+    max-in-memory-size: 10MB
+  r2dbc:
+    url: r2dbc:postgresql://${rds.db.url}
+    username: ${rds.db.username}
+    password: ${rds.db.password}
+    pool:
+      enabled: true
+      initial-size: 10
+      max-size: 20
   jpa:
     hibernate:
       ddl-auto: update
