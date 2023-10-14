@@ -4,7 +4,7 @@ phases:
     commands:
       - echo Logging in to Amazon ECR...
       - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 442336965810.dkr.ecr.us-east-1.amazonaws.com
-      - REPOSITORY_URI=442336965810.dkr.ecr.us-east-1.amazonaws.com/exchange-aws-repo
+      - REPOSITORY_URI=442336965810.dkr.ecr.us-east-1.amazonaws.com/stock-exchange-ecr
       - IMAGE_TAG=build-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}')
   build:
     commands:
@@ -20,7 +20,7 @@ phases:
       - docker push $REPOSITORY_URI:latest
       - docker push $REPOSITORY_URI:$IMAGE_TAG
       - echo Writing image definition file...
-      - DOCKER_CONTAINER_NAME=exchange-aws-repo
+      - DOCKER_CONTAINER_NAME=stock-exchange-ecr
       - printf '[{"name":"%s","imageUri":"%s"}]' $DOCKER_CONTAINER_NAME $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
       - echo $DOCKER_CONTAINER_NAME
       - echo printing imagedefinitions.json
