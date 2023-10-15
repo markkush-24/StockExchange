@@ -13,7 +13,7 @@ public class Controller {
         return "test controller is work";
     }
 
-    @GetMapping("hello1")
+    @GetMapping("hello2")
     public String testMethod1() {
         return "test controller is work1";
     }
