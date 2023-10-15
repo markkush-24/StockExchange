@@ -12,4 +12,9 @@ public class Controller {
     public String testMethod() {
         return "test controller is work";
     }
+
+    @GetMapping("hello1")
+    public String testMethod1() {
+        return "test controller is work1";
+    }
 }
